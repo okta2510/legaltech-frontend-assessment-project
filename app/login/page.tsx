@@ -60,9 +60,9 @@ export default function Login() {
       });
 
       const result = await response.json();
-
+     console.log("Login result:", result);
       if (result.success) {
-        router.push("/admin");
+        window.location.href = "/admin";
       } else {
         setError(result.error || "Invalid credentials");
       }

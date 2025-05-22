@@ -33,7 +33,8 @@ export function AdminHeader({ userName = "Admin" }: AdminHeaderProps) {
         },
       });
       
-      router.push("/login");
+      // router.push("/login");
+      window.location.href = "/login";
     } catch (error) {
       console.error("Logout error:", error);
     } finally {

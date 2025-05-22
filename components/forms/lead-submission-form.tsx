@@ -69,6 +69,7 @@ export function LeadSubmissionForm() {
     },
   });
 
+
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
@@ -178,14 +179,14 @@ export function LeadSubmissionForm() {
           )}
         />
 
-        <Card>
-          <CardHeader className="pb-3">
+        <Card className="p-0 border-0 shadow-none p-0">
+          <CardHeader className="pb-3 mb-3 px-0">
             <CardTitle className="text-base">Visa categories of interest?</CardTitle>
             <CardDescription>
               Select all visa types you're interested in exploring
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-0">
             <FormField
               control={form.control}
               name="visaTypes"
@@ -241,7 +242,10 @@ export function LeadSubmissionForm() {
               <FormLabel>How can we help you?</FormLabel>
               <FormControl>
                 <Textarea 
-                  placeholder="Tell us about your immigration goals, questions, or any special circumstances..." 
+                  placeholder="What is your current status and when does it expire?
+                              Where do you live and where do you want to work?
+                              What is your background (degrees, work history, achievements)?
+                              Why do you want to immigrate to the U.S.? Are there any timeline constraints?" 
                   className="min-h-[120px]"
                   {...field} 
                 />

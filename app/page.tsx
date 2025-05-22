@@ -1,9 +1,16 @@
+"use client";
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/logo';
 import { LeadSubmissionForm } from '@/components/forms/lead-submission-form';
+import { verifyToken } from '@/lib/auth';
+import { useEffect, useState } from "react";
+import { User } from '@/types';
+import Cookies from 'js-cookie';
 
 export default function Home() {
+
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b">
@@ -11,7 +18,7 @@ export default function Home() {
           <Logo />
           <nav className="space-x-2">
             <Link href="/admin">
-              <Button variant="outline">Admin Login</Button>
+              <Button variant="outline">Dashboard</Button>
             </Link>
           </nav>
         </div>

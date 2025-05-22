@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { email, password } = body;
-    
+    console.log(`${__filename} - `,ADMIN_CREDENTIALS);
     // Validate credentials (in a real app, this would check against a database)
     if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
       // Create a token
@@ -18,7 +18,6 @@ export async function POST(request: NextRequest) {
       
       // Set cookie
       setAuthCookie(response, token);
-      
       return response;
     }
     

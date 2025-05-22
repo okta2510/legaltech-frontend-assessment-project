@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import { User } from '@/types';
 
 const secretKey = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'fallback_secret_key_for_development_only'
+  process.env.JWT_SECRET || 'default_secret_please_change'
 );
 
 export async function signToken(payload: any): Promise<string> {
@@ -67,11 +67,3 @@ export function clearAuthCookie(response: NextResponse): NextResponse {
   
   return response;
 }
-
-// Admin credentials (in a real app, this would be in a database)
-export const ADMIN_CREDENTIALS = {
-  email: 'admin@example.com',
-  password: 'admin123', // In production, use hashed passwords
-  id: '1',
-  name: 'Admin'
-};

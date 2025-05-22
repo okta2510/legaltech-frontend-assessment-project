@@ -5,8 +5,8 @@ import { verifyToken } from '@/lib/auth';
 export async function middleware(request: NextRequest) {
   // Check if the request is for the admin routes
   if (request.nextUrl.pathname.startsWith('/admin')) {
-    const token = request.cookies.get('auth-token')?.value;
-    
+    const token = request.cookies.get('auth_token')?.value;
+    console.log(`${__filename} token - `,token);
     // If there's no token, redirect to login
     if (!token) {
       return NextResponse.redirect(new URL('/login', request.url));
@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
     try {
       // Verify token
       const payload = await verifyToken(token);
-      
+      console.log(`${__filename} - `,payload);
       // If token is invalid, redirect to login
       if (!payload) {
         return NextResponse.redirect(new URL('/login', request.url));

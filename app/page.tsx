@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/logo';
+import { LeadSubmissionForm } from '@/components/forms/lead-submission-form';
 
 export default function Home() {
   return (
@@ -12,55 +13,32 @@ export default function Home() {
             <Link href="/admin">
               <Button variant="outline">Admin Login</Button>
             </Link>
-            <Link href="/submit">
-              <Button>Get Started</Button>
-            </Link>
           </nav>
         </div>
       </header>
       
-      <main className="flex-1 container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+      <main className="">
+      <div className="w-full bg-[#DCE7A0] text-center space-y-6 mb-12  px-4 py-[100px] min-h-[350px] flex items-start justify-center">
+        <div className='container mx-auto'>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 max-w-4xl mx-auto">
             Get An Assessment Of Your Immigration Case
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600">
-            Understand your visa options with expert guidance from our experienced immigration attorneys.
-          </p>
-          <div className="mt-8">
-            <Link href="/submit">
-              <Button size="lg" className="bg-[#8BAE6D] hover:bg-[#7A9C5D] text-white px-8 py-6 text-lg rounded-md">
-                Start Your Assessment
-              </Button>
-            </Link>
+        </div>
+      </div>
+      <div className='flex-1 container mx-auto px-4 py-12'>
+
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl font-bold mb-2">Want to understand your visa options?</h1>
+            <p className="text-gray-600 mb-8">
+              Submit the form below and our team of experienced attorneys will review your information and send a preliminary assessment of your case based on your goals.
+            </p>
+            
+            <LeadSubmissionForm />
           </div>
         </div>
-        
-        <div className="mt-24 grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-            <div className="w-12 h-12 bg-[#F2C94C]/20 flex items-center justify-center rounded-full mb-4">
-              <span className="text-[#F2C94C] text-xl font-bold">1</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Submit Your Information</h3>
-            <p className="text-gray-600">Fill out our simple form with your details and immigration goals.</p>
-          </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-            <div className="w-12 h-12 bg-[#8BAE6D]/20 flex items-center justify-center rounded-full mb-4">
-              <span className="text-[#8BAE6D] text-xl font-bold">2</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Expert Review</h3>
-            <p className="text-gray-600">Our immigration attorneys will review your information.</p>
-          </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-            <div className="w-12 h-12 bg-[#1C3144]/20 flex items-center justify-center rounded-full mb-4">
-              <span className="text-[#1C3144] text-xl font-bold">3</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Personalized Assessment</h3>
-            <p className="text-gray-600">Receive tailored visa recommendations and next steps.</p>
-          </div>
-        </div>
+      </div>
+
       </main>
       
       <footer className="bg-gray-50 border-t py-8">

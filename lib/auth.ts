@@ -1,7 +1,15 @@
 import { User } from '@/types';
 import { NextResponse } from 'next/server';
-import { SignJWT } from 'jose';
+import { SignJWT, jwtVerify } from 'jose';
 import { nanoid } from 'nanoid';
+
+// Admin credentials (in a real app, this would be in a database)
+export const ADMIN_CREDENTIALS = {
+  email: 'admin@example.com',
+  password: 'admin123', // In production, use hashed passwords
+  id: '1',
+  name: 'Admin'
+};
 
 const JWT_SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || 'default_secret_please_change'
@@ -24,8 +32,17 @@ export async function signToken(payload: any) {
     .setIssuedAt()
     .setExpirationTime('24h')
     .sign(JWT_SECRET);
-  
+    console.log(`${__filename} - `,token);
   return token;
+}
+
+export async function verifyToken(token: string): Promise<any> {
+  try {
+    const { payload } = await jwtVerify(token, JWT_SECRET);
+    return payload;
+  } catch (error) {
+    return null;
+  }
 }
 
 export function setAuthCookie(response: NextResponse, token: string) {
@@ -42,11 +59,3 @@ export function clearAuthCookie(response: NextResponse) {
   response.cookies.delete('auth_token');
   return response;
 }
-
-// Re-export admin credentials for client usage
-export const ADMIN_CREDENTIALS = {
-  email: 'admin@example.com',
-  password: 'admin123',
-  id: '1',
-  name: 'Admin'
-};

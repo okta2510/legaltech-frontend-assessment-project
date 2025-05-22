@@ -73,6 +73,7 @@
     "zod": "^3.25.20"
   },
   "devDependencies": {
+    "@types/date-fns": "^2.5.3",
     "@types/uuid": "^9.0.8"
   }
 }

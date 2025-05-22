@@ -327,20 +327,6 @@ export default function LeadDetailPage({
                     </div>
                   </CardContent>
                 </Card>
-                
-                <Card className="bg-amber-50 border-amber-200">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start">
-                      <AlertTriangle className="h-5 w-5 text-amber-600 mr-2 mt-0.5" />
-                      <div>
-                        <h3 className="text-sm font-medium text-amber-800 mb-1">Demo Mode</h3>
-                        <p className="text-xs text-amber-700">
-                          This is a demo application. Email functionality and file uploads are simulated.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>

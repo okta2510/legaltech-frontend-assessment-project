@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -43,7 +44,7 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
             Leads
           </Button>
         </Link>
-        <Link href="/admin/settings">
+        <Link href="#">
           <Button
             variant={isActive("/admin/settings") ? "default" : "ghost"}
             className={cn(
@@ -59,14 +60,14 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
         </Link>
       </div>
       
-      <div className="mt-auto p-6">
+      {/* <div className="mt-auto p-6">
         <div className="rounded-lg bg-white p-4 shadow-sm border border-gray-100">
-          <h3 className="text-sm font-medium">Welcome to Almã Admin</h3>
+          <h3 className="text-sm font-medium">Welcome to Alma Admin</h3>
           <p className="text-xs text-gray-600 mt-1">
             Manage your leads and applications from this dashboard.
           </p>
         </div>
-      </div>
+      </div> */}
     </aside>
   );
 }

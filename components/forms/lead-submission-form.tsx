@@ -69,7 +69,6 @@ export function LeadSubmissionForm() {
     },
   });
 
-
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
@@ -80,8 +79,11 @@ export function LeadSubmissionForm() {
         resumeUrl = await uploadFile(selectedFile);
       }
       
+      // Convert visaTypes to VisaType[]
+      const typedVisaTypes = data.visaTypes as import("@/types").VisaType[];
       createLead({
         ...data,
+        visaTypes: typedVisaTypes,
         resumeUrl,
       });
       
